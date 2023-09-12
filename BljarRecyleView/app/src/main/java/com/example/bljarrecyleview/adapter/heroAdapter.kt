@@ -41,8 +41,12 @@ class heroAdapter(var listHero: ArrayList<dataClass>): RecyclerView.Adapter<hero
 //            Toast.makeText(holder.itemView.context, "Kamu memilih ${hero.name}", Toast.LENGTH_SHORT).show()
 //        }
 
-        val intent = Intent(holder.itemView.context, activity_detail_hero::class.java)
+        holder.itemView.setOnClickListener{
 
+        val intent = Intent(holder.itemView.context, activity_detail_hero::class.java)
+        intent.putExtra("DATA", hero)
+        holder.itemView.context.startActivity(intent)
+        }
     }
 
 }
